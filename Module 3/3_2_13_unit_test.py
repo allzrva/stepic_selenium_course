@@ -3,10 +3,13 @@ from selenium.webdriver.common.by import By
 import time
 import unittest
 
+options = webdriver.ChromeOptions()
+options.add_experimental_option('excludeSwitches', ['enable-logging'])
+
 
 class Test3_2_13(unittest.TestCase):
     def test_positive_test_case(self):
-        browser = webdriver.Chrome('C:\\chromedriver\\chromedriver.exe')
+        browser = webdriver.Chrome('C:\\chromedriver\\chromedriver.exe', options=options)
         try:
             link = "http://suninjuly.github.io/registration1.html"
             browser.get(link)
@@ -18,7 +21,7 @@ class Test3_2_13(unittest.TestCase):
             browser.quit()
 
     def test_negative_test_case(self):
-        browser = webdriver.Chrome('C:\\chromedriver\\chromedriver.exe')
+        browser = webdriver.Chrome('C:\\chromedriver\\chromedriver.exe', options=options)
         try:
             link = "http://suninjuly.github.io/registration2.html"
             browser.get(link)
